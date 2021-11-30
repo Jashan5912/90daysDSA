@@ -1,0 +1,47 @@
+Code 1 - Print Numbers 1 to 5 using Recursion
+
+
+package Recursioncode;
+
+public class Recursion {
+
+	public static void printNumber(int n) {
+		if(n>5) {
+			return;
+		}
+		System.out.println(n);
+		printNumber(n+1);
+	}
+	public static void main(String[] args) {
+
+		int n = 1;
+		printNumber(n);
+	}
+
+}
+
+
+
+Code 2 - Print Sum of first n Natural Numbers
+
+
+package introduction;
+
+public class SumRecur {
+	public static void SumNum(int i,int n,int Sum) {
+		if(i==n) {
+			Sum += i;
+			System.out.println(Sum);
+			return;
+		}
+		Sum += i;
+		SumNum(i+1,n,Sum);
+	}
+
+	public static void main(String[] args) {
+		SumNum(4,7,2);
+
+	}
+
+}
+
