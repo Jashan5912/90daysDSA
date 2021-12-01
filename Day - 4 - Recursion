@@ -1,0 +1,75 @@
+CODE 1 - Factorial of a number
+
+
+public class FactorialRec {
+
+	public static int FacNum(int n) {
+		if(n==1||n==0) {
+			return 1;
+		}
+		int ans=FacNum(n-1);
+		return ans*n;
+ 
+	}
+
+	public static void main(String[] args) {
+		int ans = FacNum(7);
+		System.out.println(ans);
+	}
+}
+
+
+CODE 2 - Fabonacci Series
+
+
+public class Fabonacci {
+	
+	public static void fibonacci(int a,int b,int n) {
+		if(n==0) {
+			return;
+		}
+		int c = a + b;
+		System.out.println(c);
+		fibonacci(b,c,n-1);
+	}
+
+	public static void main(String[] args) {
+
+		int a=0;
+		int b=1;
+		System.out.println(a);
+		System.out.println(b);
+		int n = 7;
+		fibonacci(a,b,n-2);
+	}
+
+}
+
+
+CODE 3 - Power x^n(Stack height = n)
+
+
+package introduction;
+
+public class POWER {
+
+	public static int calPow(int x, int n) {
+		if(n==0) {
+			return 1;
+		}
+		if(x==0) {
+			return 0;
+		}
+		int xPownm1 = calPow(x, n-1);
+		int xPown = xPownm1 * x;
+		return xPown;
+	}
+	public static void main(String[] args) {
+
+		int x = 2;
+		int n = 5;
+		int ans = calPow(x,n);
+		System.out.println(ans);
+	}
+
+}
