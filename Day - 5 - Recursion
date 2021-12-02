@@ -1,0 +1,54 @@
+CODE 1 - Print x^n(Stack height = log n)
+
+
+public class PowerLogn {
+
+	public static int calPow(int x, int n) {
+		if(n==0) {
+			return 1;
+		}
+		if(x==0) {
+			return 0;
+		}
+		if(n % 2 == 0) {
+			return calPow(x, n/2) * calPow(x, n/2);
+		}
+		else {
+			return calPow(x, n/2) * calPow(x, n/2) * x;
+		}
+	}
+	public static void main(String[] args) {
+		int x = 2;
+		int n = 5;
+		int ans = calPow(x,n);
+		System.out.println(ans);
+
+	}
+
+}
+
+
+CODE 2 - Tower Of Hanoi
+
+
+package introduction;
+
+public class TowerOfHanoi {
+	
+	public static void TowOfHanoi(int n,String src,String helper,String dest) {
+		if(n==1) {
+			System.out.println("transfer disk " + n + " from " + src + " to " + dest);
+			return;
+		}
+		TowOfHanoi(n-1,src,dest,helper);
+		System.out.println("transfer disk " + n + " from " + src + " to " + dest);
+		TowOfHanoi(n-1,helper,src,dest);
+	}
+
+	public static void main(String[] args) {
+
+		int n = 2;
+		TowOfHanoi(n,"S","H","D");
+	}
+
+}
