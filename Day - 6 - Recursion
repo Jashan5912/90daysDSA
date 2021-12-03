@@ -91,7 +91,7 @@ public class StrictlyIncreasing {
 }
 
 
-#Note - Here in the above code time complexity is O(n).
+#Note - Here in the above code time complexity is O(array length).
 
 
 (b)
