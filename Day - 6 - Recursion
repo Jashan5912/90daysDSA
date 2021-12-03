@@ -1,0 +1,118 @@
+CODE 1 - Print Reverse of a string 
+
+
+import java.util.Arrays;
+
+public class RevString {
+
+	public static void RevString(String str,int index) {
+		if(index==0) {
+			System.out.print(str.charAt(index));
+			return;
+		}
+		
+		System.out.print(str.charAt(index));
+		RevString(str,index-1);
+	
+	}
+	public static void main(String[] args) {
+		String a = "abcd";
+		RevString(a,a.length()-1);
+	}
+
+}
+
+
+#Note - Here in the above code time complexity is O(n).
+
+
+CODE 2 - Find first and the last occurance of an element in a String.
+
+
+public class Occurance {
+	
+	public static int first =-1;
+	public static int last = -1;
+	public static void FindOccur(String str,int index,char element) {
+		if(index==str.length()) {
+			System.out.println(first);
+			System.out.println(last);
+			return;
+		}
+		char currchar = str.charAt(index);
+		if(currchar == element) {
+			if(first==-1) {
+				first = index;
+			}
+			else {
+				last = index;
+			}
+		}
+		FindOccur(str,index+1,element);
+	}
+
+	public static void main(String[] args) {
+
+		String str = "abaacdaefaah";
+		FindOccur(str,0,'a');
+	}
+
+}
+
+
+#Note - Here in the above code time complexity is O(n).
+
+
+CODE 3 - Check if an array is sorted (Strictly Increasing)
+
+(a)
+public class StrictlyIncreasing {
+	
+	public static boolean stricInc (int[] arr,int indx) {
+		if(indx == arr.length-1) {
+			return true;
+		}
+		if(arr[indx]<arr[indx+1]) {
+			return stricInc(arr,indx+1);
+		}
+		else {
+		 return false;
+		}
+	}
+
+	public static void main(String[] args) {
+
+		int[] Arr = {1,2,3,4,5};
+		int index=0;
+		boolean ans = stricInc(Arr,index);
+		System.out.println(ans);
+	}
+
+}
+
+
+#Note - Here in the above code time complexity is O(n).
+
+
+(b)
+public class StrictlyIncreasing {
+	
+	public static boolean stricInc (int[] arr,int indx) {
+		if(indx == arr.length-1) {
+			return true;
+		}
+		if(arr[indx]>=arr[indx+1]) {
+			return false;
+		}
+		return stricInc(arr,indx+1);
+	}
+
+	public static void main(String[] args) {
+
+		int[] Arr = {1,2,3,4,5};
+		int index=0;
+		boolean ans = stricInc(Arr,index);
+		System.out.println(ans);
+	}
+
+}
