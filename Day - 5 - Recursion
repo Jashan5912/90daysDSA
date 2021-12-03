@@ -52,3 +52,8 @@ public class TowerOfHanoi {
 	}
 
 }
+
+Note - Time complexity of Tower of Hanoi is 2^n-1 which is nearly equal to 2^n.
+
+
+
