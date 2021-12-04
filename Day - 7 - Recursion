@@ -1,0 +1,127 @@
+CODE 1 - Move all x to the end of the String.
+
+
+public class FindX {
+
+	public static void moveallX(String str,int indx,int count,String newString) {
+		if(indx==str.length()) {
+			for(int i=0;i< count;i++) {
+				newString += 'x';
+			}
+				System.out.println(newString);
+				return;
+		}
+		char currChar = str.charAt(indx);
+		if (currChar=='x') {
+			count++;
+			moveallX(str,indx+1,count,newString);
+		}
+		else {
+			newString += currChar;
+			moveallX(str,indx+1,count,newString);
+		}
+
+	}
+	public static void main(String[] args) {
+
+		String str = "axbcxxd";
+		moveallX(str,0,0,"");
+	}
+
+}
+
+
+#NOTE - In the above code,the time complexity is O(n + count) = O(n + n)//because max value of count is n.
+                                                              = O(2n) = O(n)//As 2 is constant and n = STRING LENGTH.
+
+
+CODE 2 - Remove all duplicates in String
+
+
+public class RemoveDuplicatesString {
+	
+	public static boolean[] map =new boolean[26];
+
+	public static void rmvDup(int index,String str,String newString) {
+		if(index == str.length()) {
+			System.out.println(newString);
+			return;
+		}
+		char currChar = str.charAt(index);
+		if(map[currChar-'a']) {
+			rmvDup(index+1,str,newString);
+		}
+		else {
+			newString += currChar;
+			map[currChar-'a'] = true;
+			rmvDup(index+1,str,newString);
+		}
+	}
+	public static void main(String[] args) {
+		String str = "abbccda";
+		rmvDup(0,str,"");
+	}
+
+}
+
+
+#NOTE - In the above code,the time complexity is O(n)where n is string length.
+
+
+CODE 3 - Print all subsequences
+
+
+public class SubstringRec {
+
+	public static void Print_Substring(String str,int index,String newString) {
+		if(index == str.length()) {
+			System.out.println(newString);
+			return;
+		}
+		char currChar = str.charAt(index);
+		Print_Substring(str,index+1,newString+currChar);
+		Print_Substring(str,index+1,newString);
+	}
+	public static void main(String[] args) {
+		String str ="abc";
+		Print_Substring(str,0,"");
+	}
+  
+}
+
+
+#NOTE - In the above code,the time complexity is O(2^(n+1)-1)=O(2^n) where n is string length
+
+
+CODE 4 - Print all unique subsequences
+
+
+import java.util.HashSet;
+
+public class UniqueSubstring {
+
+	public static void Print_Substring(String str,int index,String newString,HashSet<String> set) {
+		if(index == str.length()) {
+			if(set.contains(newString)) {
+				return;
+			}
+			else {
+				System.out.println(newString);
+				set.add(newString);
+				return;
+			}
+		}
+		char currChar = str.charAt(index);
+		Print_Substring(str,index+1,newString+currChar,set);
+		Print_Substring(str,index+1,newString,set);
+	}
+	public static void main(String[] args) {
+		String str ="aaa";
+		HashSet<String> set = new HashSet<>();
+		Print_Substring(str,0,"",set);
+	}
+}
+
+
+#NOTE - In the above code,the time complexity is O(2^(n+1)-1)=O(2^n) where n is string length
+
