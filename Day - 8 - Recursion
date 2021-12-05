@@ -1,0 +1,57 @@
+CODE 1 - Print KEYPAD combinations
+
+
+public class Keypadcombo {
+
+	public static String[] keypad = {".", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+	public static void print_combo(String str,int index,String combination) {
+		if(index == str.length()) {
+			System.out.println(combination);
+			return;
+		}
+		char currChar = str.charAt(index);
+		String mapping = keypad[currChar- '0'];
+		for(int i =0;i<mapping.length();i++) {
+			print_combo(str,index+1,combination+mapping.charAt(i));
+		}
+	}
+	public static void main(String[] args) {
+		String str = "23";
+		print_combo(str,0,"");
+
+	}
+
+}
+
+
+#NOTE - Maximum Time complexity of the above code is O(4^n).
+
+
+CODE 2 - Print all permutations of the string "abc".
+
+
+public class Permutation {
+
+	public static void PrintPerm(String str,String Permutation) {
+		if(str.length()==0) {
+			System.out.println(Permutation);
+			return;
+		}
+		for(int i =0;i<str.length();i++) {
+			char currChar = str.charAt(i);
+			String newStr =  str.substring(0,i)+str.substring(i+1);
+			PrintPerm(newStr,Permutation+currChar);
+		}
+	}
+	public static void main(String[] args) {
+		String str = "abc";
+		PrintPerm(str,"");
+
+	}
+
+}
+
+
+#NOTE - Maximum Time complexity of the above code is O(n!).
+
+
