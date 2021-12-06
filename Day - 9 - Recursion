@@ -1,0 +1,107 @@
+CODE 1 - Count Total Paths in a maze to move from (0,0) to (n,m).
+
+
+public class Maze {
+
+	public static int countPaths(int i,int j ,int n,int m) {
+		if(i==n||j==m) {
+			return 0;
+		}
+		if(i==n-1&&j==m-1) {
+			return 1;
+		}
+		int downPaths = countPaths(i+1,j,n,m);
+		int rightPaths = countPaths(i,j+1,n,m);
+		return downPaths + rightPaths;
+	}
+	public static void main(String[] args) {
+
+		int n =3,m=4;
+		System.out.println(countPaths(0,0,n,m));
+	}
+
+}
+
+
+#NOTE - Time complexity in the above code is - O(2^(m+n))
+
+
+CODE 2 - Place tiles of sixe 1xm in a floor of size nxm.
+
+
+public class TilePlacing {
+
+	public static int placeTiles(int n,int m) {
+		if(n==m) {
+			return 2;
+		}
+		if(n<m) {
+			return 1;
+		}
+		int verticalPlacements = placeTiles(n-m,m);
+		int horizontalalPlacements = placeTiles(n-1,m);
+		return verticalPlacements + horizontalalPlacements;
+	}
+	public static void main(String[] args) {
+
+		int n = 4,m=2;
+		System.out.println(placeTiles(n,m));
+	}
+
+}
+
+
+CODE 3 - Find the number of ways in which you can invite n people to your party, single or in pair.
+
+
+public class Pairing {
+
+	public static int pair(int n) {
+		if(n<=1) {
+			return 1;
+		}
+		int way1 = pair(n-1);
+		int way2 = (n-1)*pair(n-2);
+		return way1 + way2;
+	}
+	public static void main(String[] args) {
+		int n=4;
+		System.out.println(pair(n));
+				
+
+	}
+
+}
+
+
+CODE 4 - Print all the subsets of a set of first n natural numbers
+
+
+import java.util.*;
+public class ASubset {
+
+	public static void PrintSubset(ArrayList<Integer> subset) {
+		for(int i =0;i<subset.size();i++) {
+			System.out.print(subset.get(i)+" ");
+		}
+		System.out.println();
+	}
+	public static void findSubsets(int n,ArrayList<Integer> subset) {
+		if(n==0) {
+			PrintSubset(subset);
+			return;
+		}
+		subset.add(n);
+		findSubsets(n-1,subset);
+		
+		subset.remove(subset.size()-1);
+		findSubsets(n-1,subset);
+	}
+	public static void main(String[] args) {
+
+		int n =4;
+		ArrayList<Integer> subset = new ArrayList<>();
+		findSubsets(n,subset);
+	}
+
+}
