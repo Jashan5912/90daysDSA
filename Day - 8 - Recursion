@@ -52,6 +52,6 @@ public class Permutation {
 }
 
 
-#NOTE - Maximum Time complexity of the above code is O(n!).
+#NOTE - Maximum Time complexity of the above code is O(n*n!).
 
 
