@@ -1,0 +1,66 @@
+
+//introduction
+class Pen{
+
+	String color;
+	String type;
+
+	public void write() {
+		System.out.println("writing something");
+	}
+	public void printColor() {
+		System.out.println(this.color);
+	}
+}
+//polymorphism
+class Student{
+	String name;
+	int age;
+	public void printInfo(String name){
+		System.out.println(name);
+	}
+	public void printInfo(int age) {
+		System.out.println(age);
+	}
+	public void printInfo(int age,String name) {
+		System.out.println(name+" "+age);
+	}
+}
+//inheritance
+class Shape{
+	String color;
+	public void area() {
+		System.out.println("display area");
+	}
+}
+//single level inheritance
+class Triangle extends Shape{
+	public void area(int b,int h) {
+		System.out.println((b*h)/2);
+	}
+}
+//multi level inheritence
+class EquilateralTriangle extends Triangle{
+	public void area(int b,int h) {
+		System.out.println((b*h)/2);
+	}
+}
+//hierarchal inheritance
+class Circle extends Shape{
+	public void area (int r) {
+		System.out.println(3.14*r*r);
+	}
+}
+//shape example is hybrid inheritance
+
+
+public class OOPS {
+
+	public static void main(String[] args) {
+		Triangle t1 = new Triangle();
+		t1.color = "red";
+		System.out.println(t1.color);
+		t1.area(12,8);
+	}
+
+}
